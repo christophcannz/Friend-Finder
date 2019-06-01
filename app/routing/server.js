@@ -1,6 +1,6 @@
 var express = require("express");
 var path = require("path");
-
+var bodyParser = require('body-parser');
 var app = express();
 var port = process.env.PORT || 3000;
 
@@ -11,8 +11,8 @@ app.use(bodyParser.json({ type: "application/vnd.api+json" }));
 
 app.use(express.static("app/public"));
 
-require("./app/routing/api-routes.js")(app);
-require("./app/routing/html-routes.js")(app);
+require("./apiRoutes")(app);
+require("./htmlRoutes")(app);
 
 app.listen(port, () => console.log("Listening on port %s", port));
 

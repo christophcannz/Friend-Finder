@@ -1,11 +1,11 @@
 var friends = require("../data/friends.js");
 
 module.exports = function (app) {
-    app.get("/api/friends", function (req, res) {
+    app.get("/api/friends.js", function (req, res) {
         res.json(friends);
     });
 
-    app.post("/api/friends", function (req, res) {
+    app.post("/api/friends.js", function (req, res) {
         var totalDifference = 0;
         var closeMatch = {
             name: "",
@@ -51,5 +51,12 @@ module.exports = function (app) {
             }
             console.log(totalDifference + "Total Difference");
         }
+
+        console.log(closeMatch);
+        friends.push(userData);
+        console.log("new user added");
+        console.log(userData);
+        res.json(closeMatch);
+
     });
 };
